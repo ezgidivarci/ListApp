@@ -37,6 +37,12 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="ListApp" id="1pW-Pp-FSK">
+                        <barButtonItem key="leftBarButtonItem" systemItem="trash" id="5Pd-cu-Tf6">
+                            <color key="tintColor" red="1" green="0.128738935" blue="0.13906896830000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="didRemoveBarButtonItemTapped:" destination="BYZ-38-t0r" id="Xi5-VZ-v4Y"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="3Wh-FN-1Ob">
                             <connections>
                                 <action selector="didAddBarButtonItemTapped:" destination="BYZ-38-t0r" id="nbh-uJ-g53"/>
