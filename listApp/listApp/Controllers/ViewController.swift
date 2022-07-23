@@ -104,7 +104,28 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             tableView.reloadData()
         }
         deleteAction.backgroundColor = .systemRed
-        let config = UISwipeActionsConfiguration(actions: [deleteAction])
+       
+        
+        let editAction = UIContextualAction(style: .normal, title: "Düzenle") { _, _, _ in
+            self.presentAlert(title: "Elemanı düzenle", message: nil,
+                         cancelButtonTitle: "vazgeç",
+                         isTextFieldAvailable: true,
+                         defaultButtonTitle: "Düzenle",
+                              defaultButtonHandler: { [self] _ in
+                let text = self.alertController.textFields?.first?.text
+                if text != "" {
+                    data[indexPath.row] = text!
+                    self.myTableView.reloadData()
+                } else {
+                    self.presentWarningAlert()
+                }
+                
+            }
+                         
+            )
+        }
+        
+        let config = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
         
         return config
     }
